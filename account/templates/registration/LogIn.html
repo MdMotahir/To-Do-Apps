@@ -1,0 +1,18 @@
+{%extends 'app/Base.html'%}
+{%load static%}
+
+
+{%block content%}
+    <h1>LogIn</h1>
+    <form class='form' method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class='submit_btn'>
+            <input type='submit' value='LogIn'>
+        </div>
+        <div>
+            <p>You don't have any account! let's <a href="{%url 'SignUp' %}">Sign Up</a></p>
+            <p>Forgot the password! <a href="{%url 'password_reset' %}">Reset It</a></p>
+        </div>
+    </form>
+{% endblock %}

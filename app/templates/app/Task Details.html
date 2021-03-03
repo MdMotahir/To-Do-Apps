@@ -1,0 +1,42 @@
+{% extends 'app/Base.html' %}
+
+{% block content %}
+<table style="width:80%;text-align: left; margin: auto;">
+    <tr>
+        <th style="color:crimson">Task Name:- </th>
+        <td>{{task.task}}</td>
+    </tr>
+    <tr>
+        <th style="color:crimson">Description:- </th>
+        <td>{{task.description}}</td>
+    </tr>
+    <tr>
+        <th style="color:crimson">Start Date:- </th>
+        <td>{{task.task_date}}</td>
+    </tr>
+    <tr>
+        <th style="color:crimson">End Date:- </th>
+        <td>{{task.due_date}}</td>
+    </tr>
+    <tr>
+        <th style="color:crimson">Complete Status:- </th>
+        {% if task.complete %}
+            <td style="color:red;">{{task.complete}}</td>
+        {% else %}
+            <td>{{task.complete}}</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <th style="color:crimson">Create At:- </th>
+        <td>{{task.created_at}}</td>
+    </tr>
+</table>
+{% if task.complete %}
+    <a href="{%url 'Update' task.id%}"><button>ReUse</button></a>
+    <a href="{%url 'Delete' task.id%}"><button>Delete</button></a>
+{% else %}
+    <a href="{%url 'Complete' task.id%}"><button>Complete</button></a>
+    <a href="{%url 'Update' task.id%}"><button>Edit</button></a>
+    <a href="{%url 'Delete' task.id%}"><button>Delete</button></a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{%extends 'app/Base.html'%}
+{%load static%}
+
+
+{%block content%}
+    <h1>Sign Up</h1>
+    <form class='form' method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class='submit_btn'>
+            <input id='sub' type='submit' value='Sign Up'>
+        </div>
+    </form>
+{% endblock %}

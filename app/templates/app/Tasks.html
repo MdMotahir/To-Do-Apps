@@ -1,0 +1,21 @@
+{% extends 'app/Base.html' %}
+
+{% block content %}
+<table style="width:100%">
+    {% for i in U_tasks %}
+        <tr>
+            <th>{{i.task}}<br><span>Start Date: {{i.task_date}}</span><span> | end Date: {{i.due_date}}</span><a href="{%url 'Details' i.id%}">  Details</a></th>
+            <th><a href="{%url 'Complete' i.id%}"><button>Complete</button></a></th>
+            <th><a href="{%url 'Update' i.id%}"><button>Edit</button></a></th>
+            <th><a href="{%url 'Delete' i.id%}"><button>Delete</button></a></th>
+        </tr>
+    {% endfor %}
+    {% for i in C_tasks %}
+        <tr>
+            <th><strike style="color: red;">{{i.task}}<br><span>Start Date: {{i.task_date}}</span><span> | end Date: {{i.due_date}}</span></strike><a href="{%url 'Details' i.id%}">  Details</a></th>
+            <th><a href="{%url 'Update' i.id%}"><button>ReUse</button></a></th>
+            <th><a href="{%url 'Delete' i.id%}"><button>Delete</button></a></th>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

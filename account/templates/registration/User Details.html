@@ -1,0 +1,24 @@
+{% extends 'app/Base.html' %}
+
+{% block content %}
+<table style="width:80%;text-align: left; margin: auto;">
+    <tr>
+        <th style="color:crimson">Username:- </th>
+        <td>{{user.username}}</td>
+    </tr>
+    <tr>
+        <th style="color:crimson">First Name:- </th>
+        <td>{{user.first_name}}</td>
+    </tr>
+    <tr>
+        <th style="color:crimson">Last Name:- </th>
+        <td>{{user.last_name}}</td>
+    </tr>
+    <tr>
+        <th style="color:crimson">Email:- </th>
+        <td>{{user.email}}</td>
+    </tr>
+</table>
+<a href="{%url 'User Update' user.id%}"><button>Update</button></a>
+<a href="{%url 'password_change' %}"><button>Password Change</button></a>
+{% endblock %}
